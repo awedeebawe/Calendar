@@ -107,12 +107,13 @@ class CalendarLogic: Hashable {
         let numberOfVisibleDays = numberOfDaysInPreviousPartialWeek
         let parts = date.monthDayAndYearComponents
         
-        for i in (numberOfDaysInMonth - (numberOfVisibleDays - 1)) ... numberOfDaysInMonth {
-            // If 'numberOfVisibleDays' is equal to 0, the range fails, because -(-1) makes the start > end
-            if (numberOfDaysInMonth - (numberOfVisibleDays - 1)) < numberOfDaysInMonth {
+        // If 'numberOfVisibleDays' is equal to 0, the range fails, because -(-1) makes the start > end
+        if (numberOfDaysInMonth - (numberOfVisibleDays - 1)) < numberOfDaysInMonth {
+            for i in (numberOfDaysInMonth - (numberOfVisibleDays - 1)) ... numberOfDaysInMonth {
                 dates.append(Date(day: i, month: parts.month, year: parts.year))
             }
         }
+        
         return dates
     }
 
