@@ -16,7 +16,7 @@ class WeekHeaderView: UICollectionReusableView {
     
     override func awakeFromNib() {
         if labels.count == formatter.weekdaySymbols.count {
-            for var i = 0; i < formatter.weekdaySymbols.count; i++ {
+            for i in 0 ..< formatter.weekdaySymbols.count {
                 let weekDayString = formatter.weekdaySymbols[i] 
                 
                 labels[i].text = weekDayString.substringToIndex(weekDayString.startIndex.advancedBy(3)).uppercaseString
